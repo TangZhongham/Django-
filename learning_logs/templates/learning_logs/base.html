@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gary</title>
+</head>
+<body>
+    <p>
+        <a href="{% url 'learning_logs:index' %}">Learning Log Home</a> -
+        <a href="{% url 'learning_logs:topics' %}">Topics</a>
+    </p>
+    <h1>Hello World!</h1>
+    <p>This is my learning log.</p>
+    <p>It's very important for real</p>
+    {% block content %}{% endblock content %}
+</body>
+</html>
