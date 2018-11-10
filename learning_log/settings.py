@@ -152,7 +152,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     )
 
 # 只允许heroku托管
-ALLOWED_HOSTS = ['tzh4lily.herokuapp.com/']
+ALLOWED_HOSTS = ['tzh4lily.herokuapp.com']
 
 DEBUG = False
 
