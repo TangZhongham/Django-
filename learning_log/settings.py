@@ -153,3 +153,8 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     STATIC_DIRS = (
         os.path.join(BASE_DIR, 'static')
     )
+
+# 只允许heroku托管
+ALLOWED_HOSTS = ['https://tzh4lily.herokuapp.com/']
+
+DEBUG = False
