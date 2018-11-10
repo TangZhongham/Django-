@@ -61,7 +61,7 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'learning_log/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -157,4 +157,6 @@ if cwd == '/app' or cwd[:4] == '/tmp':
 # 只允许heroku托管
 ALLOWED_HOSTS = ['https://tzh4lily.herokuapp.com/']
 
-DEBUG = False
+DEBUG = True
+
+ALLOWED_HOSTS = ['127.0.0.1']
