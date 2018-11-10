@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Topic,Entry
 from django.http import HttpResponseRedirect, Http404
 from django.core.urlresolvers import reverse
@@ -23,7 +23,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """显示单个主题及其所有条目"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
     if topic.owner != request.user:
             raise Http404
     entries = topic.entry_set.order_by('-date_added')
@@ -55,7 +55,7 @@ def new_topic(request):
 @login_required
 def new_entry(request, topic_id):
     """在特定主题中添加条目"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
     if topic.owner != request.user:
         raise Http404
 
@@ -76,7 +76,7 @@ def new_entry(request, topic_id):
 @login_required
 def edit_entry(request, entry_id):
     """编辑已有内容"""
-    entry = Entry.objects.get(id=entry_id)
+    entry = get_object_or_404(Entry, id=entry_id)
     topic = entry.topic
 
     if topic.owner != request.user:
